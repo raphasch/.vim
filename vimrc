@@ -10,31 +10,6 @@ else
   endif
 endif
 
-if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Add optional packages.
-"
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 " The ! means the package won't be loaded right away but when plugins are
@@ -43,9 +18,12 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+
 set number
 colorscheme codedark
 syntax enable
+
+set textwidth=78
 
 set autoindent
 set tabstop=4
@@ -66,6 +44,12 @@ set incsearch
 set hlsearch
 "searches subfolders recursively; tab completion as well for :find command
 set path+=**
+
+"autocomplet that works similar to bash"
+set wildmode=longest,list:full
 set wildmenu
 
+"back-up files not stored in the directory of vim session"
+set backupdir=~/.vim/vimtmp
+set directory=~/.vim/vimtmp
 
