@@ -25,18 +25,14 @@ syntax enable
 
 set textwidth=78
 
-set autoindent
+filetype indent on
 set tabstop=4
-set smartindent
 set shiftwidth=4
-set softtabstop=0 
 set expandtab
-set cindent
-set smarttab
+set autoindent
 
 set showcmd
 set cursorline
-filetype indent on
 set  showmatch
 "non case sensitive searching in file, partial matches and highlighting of search query"
 "set ic"
